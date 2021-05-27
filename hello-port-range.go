@@ -16,7 +16,7 @@ func server(port int) {
     serverMux := http.NewServeMux()
     serverMux.HandleFunc("/", hello_world)
     go func() {
-        http.ListenAndServe("localhost:"+strconv.Itoa(port), serverMux)
+        http.ListenAndServe(":"+strconv.Itoa(port), serverMux)
     }()
 }
 
@@ -47,5 +47,5 @@ func main() {
     // Listen on our last port so we don't exit.
     serverMux := http.NewServeMux()
     serverMux.HandleFunc("/", hello_world)
-    http.ListenAndServe("localhost:"+strconv.Itoa(*end), serverMux)
+    http.ListenAndServe(":"+strconv.Itoa(*end), serverMux)
 }
