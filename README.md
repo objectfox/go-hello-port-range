@@ -16,3 +16,13 @@ Run the container, mapping a small range of ports from your local machine so doc
 `docker run -p 8000-8010:8000-8010 hello-port-range`
 
 Then curl the docker container: `curl localhost:8004`
+
+**Running the Tests**
+
+Locally
+
+`go test ./hello-port-range.go hello-port-range_test.go -v`
+
+In Docker
+
+`docker run hello-port-range go test ./hello-port-range.go hello-port-range_test.go -v`

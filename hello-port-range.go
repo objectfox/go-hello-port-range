@@ -8,13 +8,13 @@ import (
     "flag"
 )
 
-func hello_world(w http.ResponseWriter, r *http.Request) {
+func HelloWorld(w http.ResponseWriter, r *http.Request) {
     fmt.Fprintf(w, "Hello world!")
 }
 
 func server(port int) {
     serverMux := http.NewServeMux()
-    serverMux.HandleFunc("/", hello_world)
+    serverMux.HandleFunc("/", HelloWorld)
     go func() {
         http.ListenAndServe(":"+strconv.Itoa(port), serverMux)
     }()
@@ -46,6 +46,6 @@ func main() {
 
     // Listen on our last port so we don't exit.
     serverMux := http.NewServeMux()
-    serverMux.HandleFunc("/", hello_world)
+    serverMux.HandleFunc("/", HelloWorld)
     http.ListenAndServe(":"+strconv.Itoa(*end), serverMux)
 }
