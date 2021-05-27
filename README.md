@@ -19,10 +19,14 @@ Then curl the docker container: `curl localhost:8004`
 
 **Running the Tests**
 
-Locally
+Run the test locally with:
 
 `go test ./hello-port-range.go hello-port-range_test.go -v`
 
-In Docker
+Run the test in Docker with:
 
 `docker run hello-port-range go test ./hello-port-range.go hello-port-range_test.go -v`
+
+For a failing test, run hello-port-range_failing_test.go instead:
+
+`go test ./hello-port-range.go hello-port-range_failing_test.go -v`
